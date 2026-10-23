@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indukuru Naveen Kumar Reddy | Formal Resume</title>
+  <meta name="description" content="Formal ATS-Compliant Resume of Indukuru Naveen Kumar Reddy - Python Developer, UI/UX Designer, Web Development, MCA (8.10 CGPA).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --accent: #059669;
+      --accent-dark: #047857;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Control Bar */
+    .action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .brand-link:hover {
+      color: #34d399;
+    }
+
+    .action-btns {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #059669;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #047857;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+    }
+
+    /* Resume Document Wrapper (2-Page ATS Clean Print Format) */
+    .resume-wrapper {
+      max-width: 860px;
+      margin: 36px auto;
+      background: var(--card-bg);
+      padding: 48px 56px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* Resume Header */
+    .resume-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .resume-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .resume-title-sub {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 18px;
+      font-size: 0.88rem;
+      color: var(--secondary);
+      margin-bottom: 4px;
+    }
+
+    .contact-line a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1.5px solid var(--primary);
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+    }
+
+    .objective-text {
+      font-size: 0.88rem;
+      color: var(--secondary);
+      text-align: justify;
+      line-height: 1.55;
+    }
+
+    /* Skills Grid */
+    .skill-row {
+      margin-bottom: 5px;
+      font-size: 0.87rem;
+      line-height: 1.5;
+    }
+
+    .skill-row strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .skill-row span {
+      color: var(--secondary);
+    }
+
+    /* Item Blocks */
+    .item-block {
+      margin-bottom: 12px;
+    }
+
+    .item-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+    }
+
+    .item-header-row strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .item-header-row span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--secondary);
+      white-space: nowrap;
+    }
+
+    .item-sub-desc {
+      font-size: 0.86rem;
+      color: var(--secondary);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .item-sub-link {
+      font-size: 0.84rem;
+      color: var(--accent-dark);
+      text-decoration: none;
+      word-break: break-all;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .item-sub-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Bullet List */
+    .bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .bullet-list li {
+      font-size: 0.86rem;
+      color: var(--secondary);
+      line-height: 1.5;
+      margin-bottom: 3px;
+    }
+
+    .bullet-list li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .technologies-line {
+      font-size: 0.84rem;
+      color: var(--secondary);
+      margin-top: 4px;
+    }
+
+    .technologies-line strong {
+      color: var(--primary);
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        color: #000000;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        margin: 0;
+        padding: 24px 30px;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+
+      .resume-header {
+        border-bottom: 2px solid #000;
+      }
+
+      .section-title {
+        border-bottom: 1.5px solid #000;
+        color: #000;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resume-wrapper {
+        margin: 16px;
+        padding: 28px 20px;
+      }
+
+      .resume-name {
+        font-size: 1.7rem;
+      }
+
+      .item-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .action-bar {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <header class="action-bar">
+    <a href="index.html" class="brand-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <span>Back to Portfolio</span>
+    </a>
+    <div class="action-btns">
+      <button class="btn btn-primary" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        <span>Print / Save as PDF</span>
+      </button>
+      <a href="assets/Indukuru_Naveen_Kumar_Reddy_Resume.pdf" download="Indukuru_Naveen_Kumar_Reddy_Resume.pdf" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Download PDF</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Document Sheet -->
+  <main class="resume-wrapper">
+
+    <!-- Header Section -->
+    <header class="resume-header">
+      <h1 class="resume-name">Indukuru Naveen Kumar Reddy</h1>
+      <div class="resume-title-sub">Python Developer | UI/UX Designer | Web Development</div>
+      <div class="contact-line">
+        <span>Bangalore, India</span>
+        <span>|</span>
+        <span><a href="mailto:indukurun@gmail.com">indukurun@gmail.com</a></span>
+        <span>|</span>
+        <span><a href="tel:+918639866865">+91-8639866865</a></span>
+      </div>
+      <div class="contact-line">
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/indukuru-naveen-kumar-reddy-1197482a6" target="_blank" rel="noopener noreferrer">indukuru-naveen-kumar-reddy</a></span>
+        <span>|</span>
+        <span>GitHub: <a href="https://github.com/indukurunaveenreddy" target="_blank" rel="noopener noreferrer">github.com/indukurunaveenreddy</a></span>
+        <span>|</span>
+        <span><a href="index.html">Portfolio</a></span>
+      </div>
+    </header>
+
+    <!-- OBJECTIVE -->
+    <section class="section">
+      <h2 class="section-title">OBJECTIVE</h2>
+      <p class="objective-text">
+        Motivated and detail-oriented MCA post-graduate (2024–2026) seeking an entry-level position as a Python Developer or Web Developer. Developed an innovative Pupil Heart Rate Variability (HRV) Monitoring system leveraging computer vision and pupillary fluctuation analysis, combining biomedical signal processing with machine learning to enable non-contact physiological monitoring. Delivered freelance websites for real businesses and possesses solid knowledge of Python programming, Web Development (HTML5, CSS3, JavaScript, React, Flask), SQL, Computer Vision, and Generative AI. Dedicated to building reliable, user-friendly web applications, advancing biomedical AI research, and contributing to organizational success through analytical precision and continuous learning.
+      </p>
+    </section>
+
+    <!-- SKILLS & TECHNOLOGIES -->
+    <section class="section">
+      <h2 class="section-title">SKILLS &amp; TECHNOLOGIES</h2>
+      <div class="skill-row">
+        <strong>Programming Languages:</strong> <span>Python, C, Java</span>
+      </div>
+      <div class="skill-row">
+        <strong>Web Development:</strong> <span>HTML5, CSS3, JavaScript, TypeScript, React, Tailwind CSS, Flask, Spring Boot, REST APIs, Responsive Design, UI/UX</span>
+      </div>
+      <div class="skill-row">
+        <strong>Database:</strong> <span>SQL, MongoDB (CRUD), MySQL, PostgreSQL</span>
+      </div>
+      <div class="skill-row">
+        <strong>AI / ML / CV:</strong> <span>OpenCV, TensorFlow, Scikit-Learn, Pandas, NumPy, Matplotlib, Generative AI</span>
+      </div>
+      <div class="skill-row">
+        <strong>Tools &amp; Platforms:</strong> <span>Git &amp; GitHub, GitHub Pages, VS Code, Google Colab, Flask, Power BI</span>
+      </div>
+      <div class="skill-row">
+        <strong>Biomedical Research:</strong> <span>Pupil HRV Analysis, Pupillometry, Signal Processing, Real-time Detection</span>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2 class="section-title">EDUCATION</h2>
+      
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Vikrama Simhapuri University, Nellore, Andhra Pradesh</strong>
+          <span>2024 – 2026</span>
+        </div>
+        <div class="item-sub-desc">MCA — Master of Computer Applications (Pursuing) | CGPA: 8.10</div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Viswam Degree &amp; PG College</strong>
+          <span>2021 – 2024</span>
+        </div>
+        <div class="item-sub-desc">BCA — Bachelor of Computer Applications | 78%</div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Government Junior College</strong>
+          <span>2019 – 2021</span>
+        </div>
+        <div class="item-sub-desc">Intermediate — C&amp;E Vocational Course (Class XI &amp; XII) | 81.8%</div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Government High School</strong>
+          <span>2018 – 2019</span>
+        </div>
+        <div class="item-sub-desc">SSC — Secondary School Certificate (Class X Board Examination) | 98%</div>
+      </div>
+    </section>
+
+    <!-- FREELANCE PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">FREELANCE PROJECTS</h2>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>The Little Chapter — Kids &amp; Maternity Photography Studio, Madanapalle</strong>
+          <span>Freelance Web Development &bull; 2026</span>
+        </div>
+        <a href="https://thelittlechapter.github.io/thelittlechapter/" target="_blank" rel="noopener noreferrer" class="item-sub-link">https://thelittlechapter.github.io/thelittlechapter/</a>
+        <ul class="bullet-list">
+          <li>Designed and developed a responsive website for a baby and maternity photography studio, featuring a themed photo gallery of 20 studio sets, category sections, session details and studio location.</li>
+          <li>Integrated WhatsApp booking links, Google Maps directions and Instagram, so clients can reserve sessions directly from the site.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Simply STONED — The Dessert Heaven of Kakinada</strong>
+          <span>Freelance Web Development &bull; 2026</span>
+        </div>
+        <a href="https://indukurunaveenreddy.github.io/simply-stoned/" target="_blank" rel="noopener noreferrer" class="item-sub-link">https://indukurunaveenreddy.github.io/simply-stoned/</a>
+        <ul class="bullet-list">
+          <li>Built a responsive website for a dessert shop with a categorised digital menu (stone ice creams, milkshakes, thick shakes, juices and desserts) with item images and prices.</li>
+          <li>Added one-tap WhatsApp ordering and contact details, and deployed the site on GitHub Pages.</li>
+        </ul>
+        <div class="technologies-line"><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Responsive Design, GitHub Pages</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">PROJECTS</h2>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Pupil Heart Rate Variability Monitoring via Pupillary Fluctuations</strong>
+          <span>Featured Project &bull; 2026</span>
+        </div>
+        <p class="item-sub-desc">
+          Developed a novel non-contact biomedical system that monitors Heart Rate Variability (HRV) through real-time analysis of pupillary fluctuations captured via a standard webcam. The autonomic nervous system modulates pupil diameter in sync with cardiac cycles, enabling HRV estimation without physical sensors — bridging computer vision, biomedical signal processing, and machine learning.
+        </p>
+        <ul class="bullet-list">
+          <li>Implemented real-time pupil detection and segmentation using OpenCV and Dlib facial landmark detection with sub-pixel precision.</li>
+          <li>Extracted pupillary oscillation time-series signals and applied FFT-based frequency analysis to isolate HRV-correlated bands (LF: 0.04–0.15 Hz, HF: 0.15–0.4 Hz).</li>
+          <li>Computed standard HRV metrics — SDNN, RMSSD, pNN50, LF/HF ratio — from pupillary fluctuation data, validated against contact-based reference sensors.</li>
+          <li>Developed a Flask web application with live video feed, real-time HRV dashboard, and autonomic stress-state classification using trained ML models.</li>
+          <li>Applied Butterworth bandpass filtering, noise reduction, and artifact rejection algorithms to ensure signal fidelity under varied lighting conditions.</li>
+          <li>Evaluated system accuracy against standard PPG reference, demonstrating reliable non-invasive autonomic biomarker estimation.</li>
+        </ul>
+        <div class="technologies-line"><strong>Technologies:</strong> Python, OpenCV, Dlib, NumPy, SciPy, Scikit-Learn, Flask, Matplotlib, Signal Processing, HRV Analysis</div>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Online Shopping Management System</strong>
+          <span>Full-Stack Project &bull; 2026</span>
+        </div>
+        <p class="item-sub-desc">
+          Built a comprehensive e-commerce platform with end-to-end user flow from authentication and product discovery to cart management and order tracking, using a modern full-stack architecture.
+        </p>
+        <ul class="bullet-list">
+          <li>Implemented JWT-based user authentication/registration, product catalog with search &amp; filters, shopping cart, order placement, and payment gateway integration.</li>
+          <li>Developed admin dashboard for inventory management, analytics, and reporting modules with Swagger API documentation.</li>
+          <li>Built REST APIs using Spring Boot with Spring Security + MySQL/PostgreSQL for backend; React + TypeScript + Tailwind for frontend.</li>
+          <li>Implemented Redis for cart caching, product/category CRUD, checkout flow, order tracking, and admin panel for reports.</li>
+        </ul>
+        <div class="technologies-line"><strong>Technologies:</strong> React, TypeScript, Spring Boot, Java, MySQL, PostgreSQL, Redis, JWT, Swagger</div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP -->
+    <section class="section">
+      <h2 class="section-title">INTERNSHIP</h2>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Python Full Stack Virtual Internship — Supreme Infosolusions Private Limited</strong>
+          <span>Dec 2025 – Apr 2026</span>
+        </div>
+        <div class="item-sub-desc">Project: Classification of Iris Prediction | 14 Weeks | Environment: Windows, Visual Studio</div>
+        <p class="item-sub-desc">
+          Worked on Iris Flower Classification using SVM Machine Learning Algorithm to predict species based on petal and sepal measurements.
+        </p>
+        <ul class="bullet-list">
+          <li>Applied data preprocessing, feature selection, and model training using Support Vector Machine (SVM) algorithm.</li>
+          <li>Evaluated model performance using accuracy, precision, and recall, achieving high classification accuracy on the Iris dataset.</li>
+          <li>Implemented the project in Python using libraries like Pandas, NumPy, Matplotlib, and Scikit-Learn.</li>
+          <li>Deployed trained model via a Flask web application for real-time species classification through a clean UI.</li>
+        </ul>
+        <div class="technologies-line"><strong>Technologies:</strong> Python, Scikit-Learn, SVM, Flask, Pandas, NumPy, Matplotlib, HTML, CSS</div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <h2 class="section-title">CERTIFICATIONS</h2>
+      <ul class="bullet-list">
+        <li><strong>Full Stack Data Science with Gen AI — Python Life (Kiran Sagar)</strong> &bull; Sep 23, 2026</li>
+        <li><strong>Python Full Stack Virtual Internship — Supreme Infosolusions Pvt. Ltd.</strong> &bull; Dec 2025 – Apr 2026</li>
+        <li><strong>CRUD Operations in MongoDB — MongoDB, Inc.</strong> &bull; Aug 21, 2025</li>
+        <li><strong>SQL &amp; Power BI Completion — Besant Technologies</strong> &bull; 2025</li>
+      </ul>
+    </section>
+
+    <!-- ACADEMIC ACHIEVEMENTS -->
+    <section class="section">
+      <h2 class="section-title">ACADEMIC ACHIEVEMENTS</h2>
+      <ul class="bullet-list">
+        <li><strong>Central Zone Wicket-Keeper Batsman:</strong> Represented the central zone in inter-zone cricket as a specialised wicket-keeper batsman.</li>
+        <li><strong>All India Softball Player:</strong> Selected and represented the national team at All India level softball competitions, demonstrating elite athletic discipline.</li>
+        <li><strong>Taekwondo Silver Medallist:</strong> Earned Silver Medal in Taekwondo at State/National level competitions — displaying focus, resilience, and competitive spirit.</li>
+      </ul>
+    </section>
+
+    <!-- HOBBIES & INTERESTS -->
+    <section class="section">
+      <h2 class="section-title">HOBBIES &amp; INTERESTS</h2>
+      <p class="item-sub-desc">
+        Playing Sports, Listening to Music, Exploring AI &amp; ML, Biomedical Research, Open Source Coding
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>

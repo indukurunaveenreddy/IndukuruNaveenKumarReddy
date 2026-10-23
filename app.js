@@ -6,7 +6,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initRoleCycler();
-  init3DSkillCards();
+  initSkillsFilter();
+  initSkillBars();
   initModals();
   initCopyButtons();
   initContactForm();
@@ -50,11 +51,11 @@ function initRoleCycler() {
   if (!roleEl) return;
 
   const roles = [
-    'Python Developer & UI/UX Designer',
-    'Automation & Manual Testing Expert',
-    'Machine Learning & Computer Vision AI',
-    'Full Stack Developer (Flask & React)',
-    'SQL Databases & QA Engineering'
+    'Python & Web Development Specialist',
+    'Full-Stack & Freelance Web Developer',
+    'Software Testing & QA Engineer',
+    'AI/ML & Computer Vision Developer',
+    'UI/UX Design & Database Architecture'
   ];
 
   let currentIndex = 0;
@@ -74,49 +75,72 @@ function initRoleCycler() {
 }
 
 /* ==========================================================================
-   3. 3D SKILL CARDS - MOUSE PARALLAX TILT
+   3. SKILLS FILTERING & ANIMATED PROGRESS BARS
    ========================================================================== */
-function init3DSkillCards() {
-  const cards = document.querySelectorAll('.skill-3d-card');
+function initSkillsFilter() {
+  const filterBtns = document.querySelectorAll('#skill-filters .filter-btn');
+  const skillCards = document.querySelectorAll('.skill-flip-card, .skill-category-card');
+  if (!filterBtns.length) return;
 
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -8;
-      const rotY = ((x - cx) / cx) * 8;
-      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
-      card.style.transition = 'transform 0.1s ease';
-    });
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-      card.style.transition = 'transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
+      const filter = btn.getAttribute('data-filter');
+      skillCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = '';
+          card.style.animation = 'fadeIn 0.35s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
 
-  // Intersection Observer to animate cards on scroll
+  // Tap-to-flip for mobile/touch screens
+  document.querySelectorAll('.skill-flip-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't toggle if clicking an interactive element inside
+      if (window.matchMedia('(hover: none)').matches || window.innerWidth <= 768) {
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+}
+
+function initSkillBars() {
+  const skillFills = document.querySelectorAll('.skill-fill');
+  if (!skillFills.length) return;
+
+  // Store target widths and reset to 0 for animation
+  skillFills.forEach(fill => {
+    const targetW = fill.style.width || fill.getAttribute('data-target-width') || '85%';
+    fill.setAttribute('data-target-width', targetW);
+    fill.style.width = '0%';
+    fill.style.transition = 'none';
+  });
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0) scale(1)';
-        }, index * 120);
-        observer.unobserve(entry.target);
+        const card = entry.target;
+        const fills = card.querySelectorAll('.skill-fill');
+        fills.forEach((fill, idx) => {
+          const targetW = fill.getAttribute('data-target-width') || '85%';
+          setTimeout(() => {
+            fill.style.transition = 'width 1s cubic-bezier(0.16, 1, 0.3, 1)';
+            fill.style.width = targetW;
+          }, idx * 80);
+        });
+        observer.unobserve(card);
       }
     });
   }, { threshold: 0.15 });
 
-  cards.forEach((card, i) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px) scale(0.96)';
-    card.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s`;
-    observer.observe(card);
-  });
+  document.querySelectorAll('.skill-flip-card, .skill-category-card').forEach(card => observer.observe(card));
 }
 
 /* ==========================================================================
@@ -156,25 +180,30 @@ function initModals() {
     }
   });
 
-  // Resume triggers
-  const resumeBtns = [
-    document.getElementById('open-resume-btn'),
-    ...document.querySelectorAll('.open-resume-trigger')
-  ];
-
-  resumeBtns.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', () => {
-        if (resumeModal) resumeModal.showModal();
-      });
-    }
+  // Resume triggers (only explicit modal triggers)
+  const resumeModalTriggers = document.querySelectorAll('.open-resume-trigger');
+  resumeModalTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (resumeModal) resumeModal.showModal();
+    });
   });
 
-  // Print Resume action
+  // Direct PDF Download buttons
+  const pdfDownloadBtns = document.querySelectorAll('.direct-pdf-download-btn');
+  pdfDownloadBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showToast('Downloading Naveen Kumar Reddy Resume (PDF)...');
+    });
+  });
+
+  // Print / Open Official PDF Resume action
   const printBtn = document.getElementById('print-resume-btn');
   if (printBtn) {
-    printBtn.addEventListener('click', () => {
-      window.print();
+    printBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('assets/Indukuru_Naveen_Kumar_Reddy_Resume.pdf', '_blank');
+      showToast('Opening official resume PDF for print/view...');
     });
   }
 
@@ -228,15 +257,26 @@ function renderProjectDetail(projectKey) {
   if (!bodyEl || !titleEl) return;
 
   if (projectKey === 'pupil-hrv') {
-    titleEl.textContent = 'Biomedical Architecture: Pupil Heart Rate Variability Monitoring';
+    titleEl.textContent = 'Biomedical AI: Pupil Heart Disease Detection & HRV Monitoring';
     bodyEl.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="background:rgba(16, 185, 129, 0.12); padding:16px 20px; border-radius:var(--radius-md); border:1px solid rgba(16, 185, 129, 0.35); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="live-pulse-dot"></span>
+            <strong style="color:#34d399; font-size:0.95rem;">Live Cloud Deployment Active on Render</strong>
+          </div>
+          <a href="https://pupil-heart-disease-detection-vebg.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-live btn-sm" style="padding:6px 16px; font-size:0.85rem;">
+            <span>Open Live App</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
         <div style="background:var(--bg-tertiary); padding:18px; border-radius:var(--radius-md); border-left:4px solid var(--accent-cyan);">
           <h4 style="color:var(--accent-cyan); margin-bottom:6px;">Scientific & Technical Objective</h4>
           <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6;">
-            Heart Rate Variability (HRV) is universally recognized as the clinical gold standard for quantifying Autonomic Nervous System (ANS) balance. 
+            Heart Rate Variability (HRV) and autonomic nervous system (ANS) metrics are key biomarkers for cardiac health. 
             Traditional monitoring requires ECG leads or contact PPG sensors. 
-            This research project demonstrates non-invasive autonomic assessment by quantifying continuous pupillary micro-fluctuations (hippus) and optical pulse signals captured via high-framerate computer vision and live camera stream.
+            This biomedical engineering project demonstrates non-invasive autonomic assessment and heart disease risk evaluation by quantifying continuous pupillary micro-fluctuations (hippus) and optical pulse signals captured via computer vision, paired with deep learning classification deployed live on Render.
           </p>
         </div>
 
@@ -254,8 +294,8 @@ function renderProjectDetail(projectKey) {
             <p style="font-size:0.85rem; color:var(--text-secondary);">4th-order Butterworth bandpass filter (0.04 Hz - 0.4 Hz) isolating autonomic hippus and capillary blood volume pulse from blink artifacts.</p>
           </div>
           <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
-            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">4. Spectral Analytics & HRV</strong>
-            <p style="font-size:0.85rem; color:var(--text-secondary);">Welch's PSD method computing Low Frequency (LF: 0.04-0.15Hz) and High Frequency (HF: 0.15-0.40Hz) powers to yield sympathetic tone ratio.</p>
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">4. Spectral Analytics & Predictions</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Welch's PSD method computing LF/HF autonomic balance coupled with trained neural classification models for automated cardiac risk detection.</p>
           </div>
         </div>
 
@@ -263,8 +303,7 @@ function renderProjectDetail(projectKey) {
           <h4 style="margin-bottom:10px;">Engineering Stack & Methodologies</h4>
           <ul style="padding-left:20px; font-size:0.88rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:6px;">
             <li><strong>Core Languages & Computer Vision:</strong> Python 3.10+, OpenCV (cv2), NumPy, SciPy (Signal Processing)</li>
-            <li><strong>Live Web Engine:</strong> In-browser MediaDevices getUserMedia live camera streaming, Real-time 2D Canvas pixel processing</li>
-            <li><strong>Web Visualization Service:</strong> Python Flask REST API with WebSocket streaming & cybernetic HUD telemetry</li>
+            <li><strong>Web Visualization & AI Backend:</strong> Python Flask REST API, SQLite database, Render Cloud production deployment</li>
             <li><strong>Testing & Quality Assurance:</strong> Synthetic waveform validation, ground-truth pulse sensor correlation testing</li>
           </ul>
         </div>
@@ -307,6 +346,82 @@ function renderProjectDetail(projectKey) {
             <li><strong>Frontend:</strong> React 18, TypeScript, Tailwind CSS, Axios, Lucide Icons</li>
             <li><strong>DevOps & Quality:</strong> Docker, Docker Compose, Postman, JUnit, Swagger UI</li>
           </ul>
+        </div>
+      </div>
+    `;
+  } else if (projectKey === 'freelance-littlechapter') {
+    titleEl.textContent = 'Freelance Project: The Little Chapter – Studio Website';
+    bodyEl.innerHTML = `
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="background:rgba(234, 179, 8, 0.12); padding:16px 20px; border-radius:var(--radius-md); border:1px solid rgba(234, 179, 8, 0.35); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="live-pulse-dot"></span>
+            <strong style="color:#fde047; font-size:0.95rem;">Live Client Production Site</strong>
+          </div>
+          <a href="https://thelittlechapter.github.io/thelittlechapter/" target="_blank" rel="noopener noreferrer" class="btn btn-live btn-sm" style="padding:6px 16px; font-size:0.85rem;">
+            <span>Visit Live Website</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div style="background:var(--bg-tertiary); padding:18px; border-radius:var(--radius-md); border-left:4px solid var(--accent-amber);">
+          <h4 style="color:var(--accent-amber); margin-bottom:6px;">Commercial Client Engagement</h4>
+          <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6;">
+            Designed, developed, and deployed an end-to-end luxury brand web experience for <strong>The Little Chapter</strong>, Madanapalle's premier maternity and newborn photography studio. Focused on high-conversion visual storytelling, rapid image loading, and instant lead generation.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">20 Handcrafted Themes</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Showcases 20 bespoke studio themes with optimized interactive galleries and smooth scroll transitions.</p>
+          </div>
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">Direct WhatsApp Booking</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">One-click pre-filled WhatsApp inquiry routing providing friction-free customer conversion directly to the studio's booking team.</p>
+          </div>
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">Mobile-First Responsiveness</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Engineered with pure vanilla CSS and JavaScript for lightning-fast mobile performance with 0 external heavy frameworks.</p>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (projectKey === 'freelance-simplystoned') {
+    titleEl.textContent = 'Freelance Project: Simply STONED – Dessert Parlour Platform';
+    bodyEl.innerHTML = `
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="background:rgba(245, 158, 11, 0.12); padding:16px 20px; border-radius:var(--radius-md); border:1px solid rgba(245, 158, 11, 0.35); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="live-pulse-dot"></span>
+            <strong style="color:#fbbf24; font-size:0.95rem;">Live Client Production Site</strong>
+          </div>
+          <a href="https://indukurunaveenreddy.github.io/simply-stoned/" target="_blank" rel="noopener noreferrer" class="btn btn-live btn-sm" style="padding:6px 16px; font-size:0.85rem;">
+            <span>Visit Live Website</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div style="background:var(--bg-tertiary); padding:18px; border-radius:var(--radius-md); border-left:4px solid var(--accent-amber);">
+          <h4 style="color:var(--accent-amber); margin-bottom:6px;">Food-Tech & E-Commerce Web Delivery</h4>
+          <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6;">
+            Crafted a dark-luxury, appetizing digital menu and ordering portal for <strong>Simply STONED</strong>, the premier dessert destination in Kakinada.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">Interactive Categorized Menu</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Rich menu navigation covering artisan stone ice creams, sizzling brownie dessert bowls, thick shakes, and waffles.</p>
+          </div>
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">WhatsApp Ordering Pipeline</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Direct-to-store WhatsApp ordering button allowing patrons to place takeaway and home delivery orders instantly.</p>
+          </div>
+          <div style="background:var(--bg-tertiary); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+            <strong style="color:var(--text-primary); display:block; margin-bottom:6px;">Location & Timings Telemetry</strong>
+            <p style="font-size:0.85rem; color:var(--text-secondary);">Live opening hours badge, Google Maps location embed, and full contact integration.</p>
+          </div>
         </div>
       </div>
     `;
