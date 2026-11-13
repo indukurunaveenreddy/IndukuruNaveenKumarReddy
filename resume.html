@@ -280,12 +280,20 @@
       color: var(--primary);
     }
 
-    /* Print Optimization */
+    /* Print Optimization - Strictly Formatted for 2 Pages */
+    @page {
+      size: A4 portrait;
+      margin: 8mm 12mm;
+    }
+
     @media print {
-      body {
-        background: #ffffff;
-        padding: 0;
-        color: #000000;
+      html, body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: #000000 !important;
+        font-size: 9pt;
+        line-height: 1.35;
       }
 
       .action-bar {
@@ -293,20 +301,114 @@
       }
 
       .resume-wrapper {
-        margin: 0;
-        padding: 20px 24px;
-        box-shadow: none;
-        border: none;
-        max-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
       }
 
       .resume-header {
-        border-bottom: 2px solid #000;
+        border-bottom: 1.5px solid #000;
+        padding-bottom: 6px;
+        margin-bottom: 8px;
+      }
+
+      .resume-name {
+        font-size: 1.7rem;
+        margin-bottom: 2px;
+      }
+
+      .resume-title-sub {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: #000;
+      }
+
+      .contact-line {
+        font-size: 0.8rem;
+        gap: 6px 12px;
+        margin-bottom: 2px;
+        color: #333;
+      }
+
+      .section {
+        margin-bottom: 8px;
       }
 
       .section-title {
-        border-bottom: 1.5px solid #000;
+        font-size: 0.88rem;
+        border-bottom: 1.2px solid #000;
+        padding-bottom: 2px;
+        margin-bottom: 5px;
         color: #000;
+      }
+
+      .objective-text {
+        font-size: 0.82rem;
+        line-height: 1.35;
+        color: #222;
+      }
+
+      .skill-row {
+        font-size: 0.82rem;
+        margin-bottom: 2px;
+        line-height: 1.32;
+      }
+
+      .item-block {
+        margin-bottom: 5px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .item-header-row {
+        font-size: 0.86rem;
+        margin-bottom: 1px;
+      }
+
+      .item-header-row strong {
+        color: #000;
+      }
+
+      .item-header-row span {
+        font-size: 0.8rem;
+        color: #444;
+      }
+
+      .item-sub-desc {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+        line-height: 1.32;
+        color: #333;
+      }
+
+      .item-sub-link {
+        font-size: 0.78rem;
+        margin-bottom: 2px;
+      }
+
+      .bullet-list {
+        padding-left: 18px;
+      }
+
+      .bullet-list li {
+        font-size: 0.8rem;
+        line-height: 1.32;
+        margin-bottom: 2px;
+        color: #222;
+      }
+
+      .technologies-line {
+        font-size: 0.78rem;
+        margin-top: 2px;
+        color: #333;
+      }
+
+      /* Force Clean 2-Page Boundary */
+      .page-break {
+        break-before: page;
+        page-break-before: always;
       }
 
       a {
@@ -444,8 +546,8 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section">
+    <!-- PROJECTS (Page 2 Start) -->
+    <section class="section page-break">
       <h2 class="section-title">PROJECTS</h2>
 
       <div class="item-block">
