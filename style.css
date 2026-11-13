@@ -2795,8 +2795,8 @@ dialog.custom-modal[open]::backdrop {
     color: #000000 !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-size: 9.6pt !important;
-    line-height: 1.45 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
   }
 
   body>*:not(#resume-modal) {
@@ -2839,8 +2839,8 @@ dialog.custom-modal[open]::backdrop {
     background: #ffffff !important;
     color: #000000 !important;
     box-shadow: none !important;
-    font-size: 9pt !important;
-    line-height: 1.35 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
   }
 
   #printable-resume * {
@@ -2850,69 +2850,69 @@ dialog.custom-modal[open]::backdrop {
 
   #printable-resume .resume-header {
     border-bottom: 1.5px solid #000 !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 8px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 14px !important;
     text-align: center !important;
   }
 
   #printable-resume .resume-name {
-    font-size: 1.7rem !important;
-    margin-bottom: 2px !important;
+    font-size: 2.1rem !important;
+    margin-bottom: 3px !important;
     color: #000 !important;
   }
 
   #printable-resume .resume-title-sub {
-    font-size: 0.95rem !important;
-    margin-bottom: 4px !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 6px !important;
     color: #000 !important;
   }
 
   #printable-resume .resume-contact-line {
-    font-size: 0.8rem !important;
-    gap: 6px 12px !important;
-    margin-bottom: 2px !important;
+    font-size: 9.2pt !important;
+    gap: 8px 16px !important;
+    margin-bottom: 3px !important;
     color: #333 !important;
   }
 
   #printable-resume .resume-sec {
-    margin-bottom: 8px !important;
+    margin-bottom: 14px !important;
   }
 
   #printable-resume .resume-sec-title {
-    font-size: 0.88rem !important;
-    border-bottom: 1.2px solid #000 !important;
-    padding-bottom: 2px !important;
-    margin-bottom: 5px !important;
+    font-size: 1.05rem !important;
+    border-bottom: 1.5px solid #000 !important;
+    padding-bottom: 3px !important;
+    margin-bottom: 8px !important;
     text-transform: uppercase !important;
     color: #000 !important;
   }
 
   #printable-resume .resume-item {
-    margin-bottom: 5px !important;
+    margin-bottom: 12px !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
   #printable-resume .resume-item-top {
-    font-size: 0.86rem !important;
-    margin-bottom: 1px !important;
+    font-size: 10.2pt !important;
+    margin-bottom: 2px !important;
   }
 
   #printable-resume .resume-item-sub {
-    font-size: 0.8rem !important;
-    margin-bottom: 2px !important;
-    line-height: 1.32 !important;
+    font-size: 9.4pt !important;
+    margin-bottom: 3px !important;
+    line-height: 1.45 !important;
     color: #333 !important;
   }
 
   #printable-resume .resume-bullet-list {
-    padding-left: 18px !important;
+    padding-left: 20px !important;
   }
 
   #printable-resume .resume-bullet-list li {
-    font-size: 0.8rem !important;
-    line-height: 1.32 !important;
-    margin-bottom: 2px !important;
+    font-size: 9.6pt !important;
+    line-height: 1.48 !important;
+    margin-bottom: 3px !important;
     color: #222 !important;
   }
 
