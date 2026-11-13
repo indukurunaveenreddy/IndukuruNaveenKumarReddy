@@ -2782,11 +2782,11 @@ dialog.custom-modal[open]::backdrop {
 }
 
 /* ==========================================================================
-   PRINT STYLES FOR RESUME (Strictly 2 Pages)
+   PRINT STYLES FOR RESUME (Strictly 3 Pages)
    ========================================================================== */
 @page {
   size: A4 portrait;
-  margin: 8mm 12mm;
+  margin: 12mm 14mm;
 }
 
 @media print {
@@ -2795,8 +2795,8 @@ dialog.custom-modal[open]::backdrop {
     color: #000000 !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-size: 9pt !important;
-    line-height: 1.35 !important;
+    font-size: 9.6pt !important;
+    line-height: 1.45 !important;
   }
 
   body>*:not(#resume-modal) {

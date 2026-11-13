@@ -280,10 +280,10 @@
       color: var(--primary);
     }
 
-    /* Print Optimization - Strictly Formatted for 2 Pages */
+    /* Print Optimization - Strictly Formatted for 3 Pages */
     @page {
       size: A4 portrait;
-      margin: 8mm 12mm;
+      margin: 12mm 14mm;
     }
 
     @media print {
@@ -292,8 +292,8 @@
         padding: 0 !important;
         margin: 0 !important;
         color: #000000 !important;
-        font-size: 9pt;
-        line-height: 1.35;
+        font-size: 9.6pt;
+        line-height: 1.45;
       }
 
       .action-bar {
@@ -310,61 +310,61 @@
 
       .resume-header {
         border-bottom: 1.5px solid #000;
-        padding-bottom: 6px;
-        margin-bottom: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
       }
 
       .resume-name {
-        font-size: 1.7rem;
-        margin-bottom: 2px;
+        font-size: 1.85rem;
+        margin-bottom: 3px;
       }
 
       .resume-title-sub {
-        font-size: 0.95rem;
-        margin-bottom: 4px;
+        font-size: 1rem;
+        margin-bottom: 6px;
         color: #000;
       }
 
       .contact-line {
-        font-size: 0.8rem;
-        gap: 6px 12px;
-        margin-bottom: 2px;
+        font-size: 0.84rem;
+        gap: 8px 14px;
+        margin-bottom: 3px;
         color: #333;
       }
 
       .section {
-        margin-bottom: 8px;
+        margin-bottom: 14px;
       }
 
       .section-title {
-        font-size: 0.88rem;
-        border-bottom: 1.2px solid #000;
-        padding-bottom: 2px;
-        margin-bottom: 5px;
+        font-size: 0.95rem;
+        border-bottom: 1.5px solid #000;
+        padding-bottom: 3px;
+        margin-bottom: 8px;
         color: #000;
       }
 
       .objective-text {
-        font-size: 0.82rem;
-        line-height: 1.35;
+        font-size: 0.86rem;
+        line-height: 1.48;
         color: #222;
       }
 
       .skill-row {
-        font-size: 0.82rem;
-        margin-bottom: 2px;
-        line-height: 1.32;
+        font-size: 0.86rem;
+        margin-bottom: 4px;
+        line-height: 1.45;
       }
 
       .item-block {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
       .item-header-row {
-        font-size: 0.86rem;
-        margin-bottom: 1px;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
       }
 
       .item-header-row strong {
@@ -372,40 +372,40 @@
       }
 
       .item-header-row span {
-        font-size: 0.8rem;
+        font-size: 0.84rem;
         color: #444;
       }
 
       .item-sub-desc {
-        font-size: 0.8rem;
-        margin-bottom: 2px;
-        line-height: 1.32;
+        font-size: 0.85rem;
+        margin-bottom: 3px;
+        line-height: 1.45;
         color: #333;
       }
 
       .item-sub-link {
-        font-size: 0.78rem;
-        margin-bottom: 2px;
+        font-size: 0.82rem;
+        margin-bottom: 3px;
       }
 
       .bullet-list {
-        padding-left: 18px;
+        padding-left: 20px;
       }
 
       .bullet-list li {
-        font-size: 0.8rem;
-        line-height: 1.32;
-        margin-bottom: 2px;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        margin-bottom: 3px;
         color: #222;
       }
 
       .technologies-line {
-        font-size: 0.78rem;
-        margin-top: 2px;
+        font-size: 0.82rem;
+        margin-top: 4px;
         color: #333;
       }
 
-      /* Force Clean 2-Page Boundary */
+      /* Force Clean Page Boundaries */
       .page-break {
         break-before: page;
         page-break-before: always;
@@ -553,33 +553,54 @@
       <div class="item-block">
         <div class="item-header-row">
           <strong>Pupil Heart Rate Variability (HRV) Monitoring System</strong>
-          <span>2026</span>
+          <span>Featured Research Project &bull; 2026</span>
         </div>
+        <p class="item-sub-desc">
+          Developed a non-contact biomedical monitoring system that estimates Heart Rate Variability (HRV) through real-time pupillary fluctuation analysis captured via standard webcams, bridging computer vision, signal processing, and machine learning.
+        </p>
         <ul class="bullet-list">
-          <li>Engineered a non-contact biomedical monitoring system that estimates Heart Rate Variability (HRV) through real-time pupillary fluctuation analysis using a standard webcam.</li>
-          <li>Implemented real-time pupil detection and tracking using OpenCV and Dlib with sub-pixel precision, processing 30+ frames per second.</li>
-          <li>Computed HRV metrics (SDNN, RMSSD, pNN50, LF/HF ratio) from pupillary oscillation signals using FFT-based frequency analysis with SciPy.</li>
-          <li>Developed a Flask web dashboard with live video feed, real-time HRV visualization, and autonomic stress-state classification using trained Scikit-Learn models.</li>
+          <li>Implemented real-time pupil detection, contour extraction, and tracking using OpenCV and Dlib with sub-pixel precision at 30+ FPS.</li>
+          <li>Extracted pupillary oscillation time-series signals and applied FFT-based frequency analysis to isolate HRV-correlated frequency bands (LF: 0.04–0.15 Hz, HF: 0.15–0.4 Hz).</li>
+          <li>Computed clinical HRV metrics including SDNN, RMSSD, pNN50, and LF/HF ratio, validated against contact-based photoplethysmography (PPG) sensors.</li>
+          <li>Developed a responsive Flask web application featuring live video feeds, real-time waveform dashboards, and autonomic stress classification using trained ML models.</li>
+          <li>Applied Butterworth bandpass filtering, noise reduction, and artifact rejection algorithms to maintain signal integrity across varied lighting.</li>
         </ul>
-        <div class="technologies-line"><strong>Technologies:</strong> Python, OpenCV, Dlib, NumPy, SciPy, Scikit-Learn, Flask, Matplotlib, Signal Processing</div>
+        <div class="technologies-line"><strong>Technologies:</strong> Python, OpenCV, Dlib, NumPy, SciPy, Scikit-Learn, Flask, Matplotlib, Biomedical Signal Processing</div>
       </div>
 
       <div class="item-block">
         <div class="item-header-row">
           <strong>Online Shopping Management System — Full Stack E-Commerce Platform</strong>
-          <span>2026</span>
+          <span>Full-Stack Project &bull; 2026</span>
         </div>
+        <p class="item-sub-desc">
+          Architected and developed an enterprise-grade full-stack e-commerce web platform managing end-to-end customer purchasing flows and administrative operations.
+        </p>
         <ul class="bullet-list">
-          <li>Architected and built a full-stack e-commerce platform supporting user authentication, product catalog with search and filtering, cart management, and order tracking.</li>
-          <li>Developed RESTful APIs using Spring Boot with Spring Security and JWT authentication; integrated MySQL and PostgreSQL for data persistence.</li>
-          <li>Built a responsive frontend using React, TypeScript, and Tailwind CSS; implemented Redis caching to improve cart performance by 40%.</li>
+          <li>Built scalable RESTful APIs using Spring Boot with Spring Security, role-based access control, and JWT token authentication.</li>
+          <li>Engineered product catalog with instant search, category filters, shopping cart state management, and relational MySQL/PostgreSQL persistence.</li>
+          <li>Implemented Redis distributed in-memory caching for session management and cart operations, improving response latency by 40%.</li>
+          <li>Designed a modern, responsive frontend using React, TypeScript, and Tailwind CSS with interactive order tracking and administrative analytics.</li>
         </ul>
         <div class="technologies-line"><strong>Technologies:</strong> React, TypeScript, Spring Boot, Java, MySQL, PostgreSQL, Redis, JWT, Swagger, REST APIs</div>
       </div>
+
+      <div class="item-block">
+        <div class="item-header-row">
+          <strong>Commercial Client Web Applications — Production Deployments</strong>
+          <span>Client Solutions &bull; 2026</span>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Manvitha Designers:</strong> Developed a commercial catalog and service platform for an authorized computer embroidery machine dealer with model specs, parts inventory, and online quotation requests.</li>
+          <li><strong>The Little Chapter:</strong> Designed an elegant photography studio website with themed portfolio galleries of 20+ studio sets, integrated WhatsApp booking, and Google Maps directions.</li>
+          <li><strong>Simply STONED:</strong> Built a responsive dessert shop website featuring a categorized digital menu with pricing, images, and one-tap direct WhatsApp ordering.</li>
+        </ul>
+        <div class="technologies-line"><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Responsive Web Design, Git, GitHub Pages</div>
+      </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="section">
+    <!-- EDUCATION (Page 3 Start) -->
+    <section class="section page-break">
       <h2 class="section-title">EDUCATION</h2>
       
       <div class="item-block">
@@ -626,14 +647,22 @@
       </ul>
     </section>
 
-    <!-- EXTRACURRICULAR ACTIVITIES -->
+    <!-- EXTRACURRICULAR & ATHLETIC ACHIEVEMENTS -->
     <section class="section">
-      <h2 class="section-title">EXTRACURRICULAR ACTIVITIES</h2>
+      <h2 class="section-title">EXTRACURRICULAR &amp; ATHLETIC ACHIEVEMENTS</h2>
       <ul class="bullet-list">
-        <li><strong>All India Softball Player:</strong> Represented at All India level national softball competitions.</li>
-        <li><strong>Taekwondo Silver Medallist:</strong> Earned Silver Medal at State/National level competitions.</li>
-        <li><strong>Central Zone Cricket:</strong> Selected as wicket-keeper batsman for inter-zone cricket tournaments.</li>
+        <li><strong>Central Zone Wicket-Keeper Batsman:</strong> Represented the central zone in inter-zone cricket tournaments demonstrating leadership and athletic agility.</li>
+        <li><strong>All India Softball Player:</strong> Selected and represented at All India level national competitions with high-level team collaboration.</li>
+        <li><strong>Taekwondo Silver Medallist:</strong> Earned Silver Medal at State/National level martial arts competitions displaying discipline and resilience.</li>
       </ul>
+    </section>
+
+    <!-- AREAS OF INTEREST & TECHNICAL FOCUS -->
+    <section class="section">
+      <h2 class="section-title">AREAS OF INTEREST &amp; TECHNICAL FOCUS</h2>
+      <p class="objective-text">
+        Biomedical Computer Vision, Full-Stack System Architecture, Generative AI Applications, Real-Time Signal Processing, Open Source Software Development, Competitive Sports.
+      </p>
     </section>
 
   </main>
