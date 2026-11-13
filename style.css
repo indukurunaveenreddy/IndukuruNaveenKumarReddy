@@ -12,11 +12,11 @@
   --bg-card-hover: rgba(18, 29, 54, 0.92);
   --border-color: rgba(255, 255, 255, 0.085);
   --border-glow: rgba(16, 185, 129, 0.4);
-  
+
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
+
   --accent-cyan: #06b6d4;
   --accent-blue: #38bdf8;
   --accent-indigo: #6366f1;
@@ -74,7 +74,9 @@
 /* ==========================================================================
    RESET & BASE
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -129,7 +131,7 @@ body {
   position: fixed;
   inset: 0;
   background-image: linear-gradient(to right, var(--border-color) 1px, transparent 1px),
-                    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
   z-index: -1;
@@ -139,7 +141,12 @@ body {
 }
 
 /* Typography Helpers */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--text-primary);
   line-height: 1.25;
@@ -359,7 +366,8 @@ img {
   padding-block: 4px;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--text-primary);
 }
 
@@ -375,7 +383,8 @@ img {
   border-radius: var(--radius-full);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
@@ -386,11 +395,21 @@ img {
 }
 
 /* Theme toggle */
-.sun-icon { display: none; }
-.moon-icon { display: block; }
+.sun-icon {
+  display: none;
+}
 
-[data-theme="light"] .sun-icon { display: block; }
-[data-theme="light"] .moon-icon { display: none; }
+.moon-icon {
+  display: block;
+}
+
+[data-theme="light"] .sun-icon {
+  display: block;
+}
+
+[data-theme="light"] .moon-icon {
+  display: none;
+}
 
 .mobile-only {
   display: none;
@@ -435,8 +454,17 @@ img {
 }
 
 @keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.5; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.5;
+  }
 }
 
 .hero-title {
@@ -549,8 +577,15 @@ img {
 }
 
 @keyframes glowPulse {
-  0% { transform: scale(0.96); opacity: 0.35; }
-  100% { transform: scale(1.04); opacity: 0.6; }
+  0% {
+    transform: scale(0.96);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: scale(1.04);
+    opacity: 0.6;
+  }
 }
 
 .avatar-card {
@@ -630,8 +665,13 @@ img {
 }
 
 @keyframes floatChip {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
 }
 
 .chip-icon {
@@ -949,8 +989,15 @@ img {
 }
 
 @keyframes markerPing {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.6); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
 .timeline-content {
@@ -1152,9 +1199,12 @@ img {
 }
 
 @keyframes floatCardIcon {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -1247,6 +1297,7 @@ img {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1694,10 +1745,25 @@ img {
   border: 1px solid var(--border-color);
 }
 
-.infosys-icon { background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.35); }
-.codealpha-icon { background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.35); }
-.kaggle-icon { background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); }
-.besant-icon { background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); }
+.infosys-icon {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.codealpha-icon {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.kaggle-icon {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.besant-icon {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.35);
+}
 
 .cert-issuer {
   font-size: 0.78rem;
@@ -2135,7 +2201,7 @@ dialog.custom-modal {
   max-height: 90vh;
   border-radius: var(--radius-lg);
   color: var(--text-primary);
-  
+
   /* Transitions with allow-discrete as per guidelines */
   opacity: 0;
   transform: scale(0.95);
@@ -2311,8 +2377,19 @@ dialog.custom-modal[open]::backdrop {
 }
 
 @keyframes liveDotPulse {
-  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-  50% { transform: scale(1.2); opacity: 0.8; box-shadow: 0 0 0 4px rgba(239, 68, 68, 0); }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0);
+  }
 }
 
 .eye-canvas-wrapper {
@@ -2372,8 +2449,15 @@ dialog.custom-modal[open]::backdrop {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
-  50% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+  }
 }
 
 .camera-prompt-content h4 {
@@ -2418,10 +2502,23 @@ dialog.custom-modal[open]::backdrop {
   backdrop-filter: blur(4px);
 }
 
-.hud-tag.top-left { align-self: flex-start; }
-.hud-tag.top-right { align-self: flex-end; margin-top: -20px; }
-.hud-tag.bottom-left { align-self: flex-start; }
-.hud-tag.bottom-right { align-self: flex-end; margin-top: -20px; }
+.hud-tag.top-left {
+  align-self: flex-start;
+}
+
+.hud-tag.top-right {
+  align-self: flex-end;
+  margin-top: -20px;
+}
+
+.hud-tag.bottom-left {
+  align-self: flex-start;
+}
+
+.hud-tag.bottom-right {
+  align-self: flex-end;
+  margin-top: -20px;
+}
 
 .sim-controls {
   background: var(--bg-tertiary);
@@ -2524,8 +2621,13 @@ dialog.custom-modal[open]::backdrop {
 }
 
 @keyframes blinkLive {
-  0% { opacity: 0.4; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 #waveformCanvas {
@@ -2668,8 +2770,15 @@ dialog.custom-modal[open]::backdrop {
 }
 
 @keyframes slideInToast {
-  from { transform: translateX(50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -2681,7 +2790,7 @@ dialog.custom-modal[open]::backdrop {
     color: #0f172a !important;
   }
 
-  body > *:not(#resume-modal) {
+  body>*:not(#resume-modal) {
     display: none !important;
   }
 
@@ -2756,7 +2865,8 @@ dialog.custom-modal[open]::backdrop {
     margin-inline: auto;
   }
 
-  .hero-cta-group, .hero-social-strip {
+  .hero-cta-group,
+  .hero-social-strip {
     justify-content: center;
   }
 
@@ -2860,8 +2970,8 @@ dialog.custom-modal[open]::backdrop {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s ease,
-              border-color 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   overflow: hidden;
 }
 
@@ -3063,14 +3173,27 @@ dialog.custom-modal[open]::backdrop {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .skills-focus-grid { grid-template-columns: 1fr; }
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .skills-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
-  .skills-focus-grid { grid-template-columns: 1fr; }
-  .skill-card-modern { padding: 1.5rem; }
-  .certs-grid { grid-template-columns: 1fr; }
+  .skills-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card-modern {
+    padding: 1.5rem;
+  }
+
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ==========================================================================
@@ -3125,4 +3248,3 @@ dialog.custom-modal[open]::backdrop {
   align-items: center;
   gap: 6px;
 }
-
