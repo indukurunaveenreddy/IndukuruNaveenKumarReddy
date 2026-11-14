@@ -1,17 +1,18 @@
 # Indukuru Naveen Kumar Reddy — Personal Portfolio & Resume
 
 🌐 **Live Website:** [https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/](https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/)  
-📄 **Formal ATS Resume:** [https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/resume.html](https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/resume.html)
+📄 **Formal ATS Resume:** [https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/resume.html](https://indukurunaveenreddy.github.io/IndukuruNaveenKumarReddy/resume.html)  
+🫀 **Live Pupil HRV App (Render):** [https://pupil-heart-disease-detection-vebg.onrender.com/](https://pupil-heart-disease-detection-vebg.onrender.com/)
 
 ---
 
 ## 👨‍💻 About Me
 Motivated and detail-oriented **MCA Graduate (2024–2026, 8.10 CGPA)** from Vikrama Simhapuri University, specializing in:
 - **Python Development & Web Development** (HTML5, CSS3, JavaScript, React, Flask, REST APIs)
-- **Biomedical Computer Vision & AI/ML** (Pupil Heart Rate Variability Monitoring)
+- **Biomedical Computer Vision & AI/ML** ([Pupil Heart Rate Variability & Disease Detection](https://pupil-heart-disease-detection-vebg.onrender.com/))
 - **Database Engineering** (SQL, MySQL, PostgreSQL, MongoDB CRUD)
 - **Software Testing & QA** (SDLC, STLC, Manual Testing, Test Case Execution)
-- **Freelance Web Solutions** (The Little Chapter, Simply Stoned)
+- **Freelance Web Solutions** (Manvitha Designers, The Little Chapter, Simply Stoned)
 
 ---
 
