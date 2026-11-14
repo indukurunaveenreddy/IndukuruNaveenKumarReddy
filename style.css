@@ -2657,6 +2657,7 @@ dialog.custom-modal[open]::backdrop {
   padding: 40px;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid #0f172a;
   font-family: 'Plus Jakarta Sans', sans-serif;
   line-height: 1.5;
 }
@@ -2786,7 +2787,7 @@ dialog.custom-modal[open]::backdrop {
    ========================================================================== */
 @page {
   size: A4 portrait;
-  margin: 12mm 14mm;
+  margin: 8mm 10mm;
 }
 
 @media print {
@@ -2834,11 +2835,15 @@ dialog.custom-modal[open]::backdrop {
   #printable-resume {
     display: block !important;
     width: 100% !important;
-    padding: 0 !important;
+    padding: 16px 22px !important;
     margin: 0 !important;
     background: #ffffff !important;
     color: #000000 !important;
     box-shadow: none !important;
+    border: 2px solid #000000 !important;
+    border-radius: 0 !important;
+    -webkit-box-decoration-break: clone !important;
+    box-decoration-break: clone !important;
     font-size: 10.5pt !important;
     line-height: 1.5 !important;
   }

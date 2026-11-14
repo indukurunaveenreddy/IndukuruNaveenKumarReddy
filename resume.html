@@ -107,15 +107,15 @@
       border-color: #ffffff;
     }
 
-    /* Resume Document Wrapper (2-Page ATS Clean Print Format) */
+    /* Resume Document Wrapper (Formal Bordered Format) */
     .resume-wrapper {
       max-width: 860px;
       margin: 36px auto;
       background: var(--card-bg);
-      padding: 36px 48px;
-      border-radius: 12px;
+      padding: 40px 52px;
+      border-radius: 8px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid var(--border);
+      border: 2px solid var(--primary);
     }
 
     /* Resume Header */
@@ -285,7 +285,7 @@
     /* Print Optimization - Strictly Formatted for 3 Pages */
     @page {
       size: A4 portrait;
-      margin: 12mm 14mm;
+      margin: 8mm 10mm;
     }
 
     @media print {
@@ -304,10 +304,13 @@
 
       .resume-wrapper {
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 16px 22px !important;
         box-shadow: none !important;
-        border: none !important;
+        border: 2px solid #000000 !important;
+        border-radius: 0 !important;
         max-width: 100% !important;
+        -webkit-box-decoration-break: clone !important;
+        box-decoration-break: clone !important;
       }
 
       .resume-header {
