@@ -21,7 +21,8 @@ Motivated and detail-oriented **MCA Graduate (2024–2026, 8.10 CGPA)** from Vik
 - **Cyber Emerald Aurora Design:** Dark obsidian velvet aesthetic, ambient glows, fluid micro-interactions, and glassmorphism.
 - **Interactive 3D Skill Flip Cards:** Modern CSS 3D perspective flip cards detailing both core expertise and advanced capabilities.
 - **Interactive Pupil HRV Simulator:** In-browser biomedical signal processing simulation demonstrating pupillary rhythm analysis.
-- **Commercial Freelance Projects:** Showcase of live client platforms deployed for real businesses.
+- **Commercial Freelance Projects:** Showcase of 3 live client platforms deployed for real businesses (Manvitha Designers, The Little Chapter, Simply STONED).
+- **5 Key Technical Certifications:** Full Stack Data Science with Gen AI, Python Full Stack Development, MongoDB CRUD Operations, Machine Learning (Code Alpha), SQL & Power BI.
 - **Dual Resume Access:**
   - One-click print-ready ATS Formal Resume (`resume.html`)
   - Integrated in-page modal resume and direct PDF download
