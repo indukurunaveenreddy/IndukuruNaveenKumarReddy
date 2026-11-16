@@ -1602,15 +1602,10 @@
               <div style="font-size: 0.86rem; margin: 2px 0 6px;">
                 <a href="https://pupil-heart-disease-detection-vebg.onrender.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;"><strong>Live Render App:</strong> https://pupil-heart-disease-detection-vebg.onrender.com/</a>
               </div>
-              <p style="font-size: 0.88rem; margin: 4px 0 6px; color: var(--text-secondary);">
-                Developed a non-contact biomedical monitoring system that estimates Heart Rate Variability (HRV) through real-time pupillary fluctuation analysis captured via standard webcams, bridging computer vision, signal processing, and machine learning.
-              </p>
               <ul class="resume-bullet-list">
                 <li>Implemented real-time pupil detection, contour extraction, and tracking using OpenCV and Dlib with sub-pixel precision at 30+ FPS.</li>
-                <li>Extracted pupillary oscillation time-series signals and applied FFT-based frequency analysis to isolate HRV-correlated frequency bands (LF: 0.04–0.15 Hz, HF: 0.15–0.4 Hz).</li>
-                <li>Computed clinical HRV metrics including SDNN, RMSSD, pNN50, and LF/HF ratio, validated against contact-based photoplethysmography (PPG) sensors.</li>
-                <li>Developed a responsive Flask web application featuring live video feeds, real-time waveform dashboards, and autonomic stress classification using trained ML models.</li>
-                <li>Applied Butterworth bandpass filtering, noise reduction, and artifact rejection algorithms to maintain signal integrity across varied lighting.</li>
+                <li>Applied FFT-based frequency analysis and Butterworth filtering to extract pupillary oscillation signals and compute clinical HRV metrics (SDNN, RMSSD, LF/HF).</li>
+                <li>Developed a responsive Flask web application featuring live webcam video feeds, real-time waveform dashboards, and ML-based autonomic stress classification.</li>
               </ul>
               <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;"><strong>Technologies:</strong> Python, OpenCV, Dlib, NumPy, SciPy, Scikit-Learn, Flask, Matplotlib, Biomedical Signal Processing</div>
             </div>
@@ -1620,16 +1615,12 @@
                 <strong>Online Shopping Management System — Full Stack E-Commerce Platform</strong>
                 <span>Full-Stack Project &bull; 2026</span>
               </div>
-              <p style="font-size: 0.88rem; margin: 4px 0 6px; color: var(--text-secondary);">
-                Architected and developed an enterprise-grade full-stack e-commerce web platform managing end-to-end customer purchasing flows and administrative operations.
-              </p>
               <ul class="resume-bullet-list">
-                <li>Built scalable RESTful APIs using Spring Boot with Spring Security, role-based access control, and JWT token authentication.</li>
-                <li>Engineered product catalog with instant search, category filters, shopping cart state management, and relational MySQL/PostgreSQL persistence.</li>
-                <li>Implemented Redis distributed in-memory caching for session management and cart operations, improving response latency by 40%.</li>
-                <li>Designed a modern, responsive frontend using React, TypeScript, and Tailwind CSS with interactive order tracking and administrative analytics.</li>
+                <li>Architected a full-stack e-commerce platform using React, TypeScript, and Spring Boot managing end-to-end purchasing and admin workflows.</li>
+                <li>Built secure RESTful APIs with Spring Security, role-based access control (RBAC), and JWT token authentication.</li>
+                <li>Integrated Redis in-memory caching and MySQL/PostgreSQL persistence, improving cart and session response latency by 40%.</li>
               </ul>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;"><strong>Technologies:</strong> React, TypeScript, Spring Boot, Java, MySQL, PostgreSQL, Redis, JWT, Swagger, REST APIs</div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;"><strong>Technologies:</strong> React, TypeScript, Spring Boot, Java, MySQL, PostgreSQL, Redis, JWT, REST APIs</div>
             </div>
           </section>
 
